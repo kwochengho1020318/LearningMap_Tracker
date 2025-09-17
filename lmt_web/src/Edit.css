@@ -1,0 +1,6 @@
+.nav-buttons{
+    display: flex;
+  justify-content: center; /* 或 space-between */
+  gap: 1rem;               /* 這裡決定間距 */
+  margin: 2rem 0;
+}

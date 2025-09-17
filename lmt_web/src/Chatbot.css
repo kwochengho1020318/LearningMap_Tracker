@@ -1,0 +1,22 @@
+.bubble-bot{
+  float:left
+}
+.bubble-user{
+  float:right
+}
+.dialog {
+  display: flex;
+  position: fixed;          /* 固定在視窗上，不會隨捲動跑掉 */
+  top: 50%;                 /* 從上邊界算 50% */
+  left: 50%;                /* 從左邊界算 50% */
+  transform: translate(-50%,-50%);
+  width: 700px;
+  height: 300px;             /* 你可以自己設定大小 */
+  padding: 20px;
+    background: linear-gradient(45deg, black, rgb(129, 0, 193));
+
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(56, 15, 181, 0.2);
+  justify-content: center; /* 水平置中 */
+  align-items: center;
+}

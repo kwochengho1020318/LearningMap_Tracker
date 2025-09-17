@@ -1,0 +1,131 @@
+.App {
+  text-align: center;
+
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.base {
+  background: linear-gradient(45deg, rgb(18, 111, 203), rgb(218, 205, 225));
+
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper {
+  justify-content: center;
+  width: 75%;
+  /* 水平置中 */
+  align-items: center;
+  /* 垂直置中 */
+  height: 100vh;
+  /* 讓 wrapper 填滿視窗，方便看效果 */
+  background-color: #282c34;
+  border-radius: 20px;
+  overflow: auto;
+}
+.sideBar{
+  width: 30%;
+}
+.mainContent{
+
+  width: 90%;  /* 水平置中 */
+  align-items: center;
+  /* 垂直置中 */
+  height: 100vh;
+  /* 讓 wrapper 填滿視窗，方便看效果 */
+  background-color: #282c34;
+  border-radius: 20px;
+  overflow: auto;
+}
+.square {
+  width: 70%;
+  height: 90%;
+  aspect-ratio: 1 / 1;
+  /* 保持正方形 */
+  background-color: lightblue;
+}
+
+.textbubble {
+  padding: 10px 12px;
+  /* 內距 */
+  font-size: 22px;
+  /* 文字大小 */
+  line-height: 1.5;
+  border: 2px solid #ccc;
+  /* 邊框顏色 */
+  border-radius: 8px;
+  /* 圓角 */
+  outline: none;
+  /* 去掉預設 focus 藍框 */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin: 10px 20px;
+  align-items: start;
+  width: 50%;
+  display: flex;
+}
+
+.chat-main {
+  display: block;
+  overflow: auto;
+}
+
+.input-dock {
+  display: block;
+  width: 100%;
+
+}
+
+.textarea {
+  width: 70%;
+  /* 滿寬 */
+  height: 150px;
+  /* 高度 */
+  font-size: 18px;
+  /* 文字大小 */
+  line-height: 1.5;
+  /* 行高 */
+  padding: 12px 15px;
+  /* 內距 */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  overflow: auto;
+  /* 可以滾動 */
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
