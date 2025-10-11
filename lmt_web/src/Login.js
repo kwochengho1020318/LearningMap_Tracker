@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useState } from "react";
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./Chatbot.css";
@@ -75,7 +75,7 @@ const navigate = useNavigate();
           >
             {loading ? "Login..." : "Login"}
           </button>
-          <p className="text-light"> if you like<br/>,contact <a>kwochengho1020318@gmail.com</a> for a demo account</p>
+          <p className="text-light"> if you like<br/>,contact <a href="mailto:kwochengho1020318@gmail.com">kwochengho1020318@gmail.com</a> for a demo account</p>
         </form>
       </div>
     </div>

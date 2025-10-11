@@ -142,7 +142,7 @@ export default function TrackerPage() {
       }
     }
     fetchMenu();
-  }, [uuid])
+  }, [uuid,navigate])
   return (
     <div className="d-flex  base">
       {/* 左側 Sidebar */}
