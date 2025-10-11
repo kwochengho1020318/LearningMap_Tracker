@@ -85,7 +85,7 @@ export default function DocsGridDemo() {
     const fetchData = async () => {
       try {
         // 假設這裡是你的 API
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/map`,{credentials:"include"});
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/chat/map`,{credentials:"include"});
         const data = await response.json();
         if (response.status===401){ 
           navigate('/login',{replace:true})
