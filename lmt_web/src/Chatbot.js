@@ -92,7 +92,7 @@ export default function ChatbotPage() {
         // TODO：改成你真正的 chatbot API 呼叫
         // 這裡先模擬一個延遲並回覆
         try {
-            fetch("http://localhost:3001/chat", {
+            fetch(`${process.env.REACT_APP_API_URL}/chat`, {
                 method: "POST",
                 body: formData,   /*使用處理後的資料*/
                 credentials:"include",
@@ -132,7 +132,7 @@ export default function ChatbotPage() {
         autoResize();
     }, []);
     const saveMap = async (data) => {
-        await sendPost("http://localhost:3001/chat/map", data, () => { setShowToast(true) })
+        await sendPost(`${process.env.REACT_APP_API_URL}/chat/map`, data, () => { setShowToast(true) })
     }
     function MessageBubble({ type, role, text, data }) {
         const isUser = role === "user";
