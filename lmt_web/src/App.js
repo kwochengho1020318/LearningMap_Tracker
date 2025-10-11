@@ -7,7 +7,6 @@ import TrackerPage from './Tracker';
 import EditPage from './Edit';
 import Login from './Login';
 import './ProtectRoutes'
-import ProtectedRoute from './ProtectRoutes';
 import { useEffect, useState } from 'react';
 function App() {
 

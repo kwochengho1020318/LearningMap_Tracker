@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { replace, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 function DocsGrid({ items, onItemClick, onCreateNew }) {
@@ -108,7 +108,7 @@ export default function DocsGridDemo() {
     };
 
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const handleItemClick = (item) => {
     navigate(item.destination)
