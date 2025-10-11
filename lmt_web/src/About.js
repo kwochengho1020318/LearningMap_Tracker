@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 const images = [
@@ -28,7 +27,7 @@ export default function About() {
         <div>
           <h3>Some UI screens</h3>
           {images.map((img, idx) => (
-        <div className='my-5'><img key={idx} src={img} style={{ width:"80%", objectFit: "cover" }} /></div>
+        <div className='my-5'><img key={idx} src={img} style={{ width:"80%", objectFit: "cover" }}alt="demo pictures" /></div>
       ))}
         </div></div>
 
