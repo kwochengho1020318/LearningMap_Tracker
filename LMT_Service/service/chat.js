@@ -13,7 +13,7 @@ async function chat(input) {
     const uuid = uuidv4();
     const response = await axios.post(`${OLLAMA_API}/api/generate`, {
         "model": "gemma3:12b",  // 模型名称
-        "prompt": `請幫我擬定${input}的學習計畫，請嚴格以以下的格式回復，source部分必須是物件格式，裡面會標註type是url還是純text，並以content來做內容。嚴格以${format}的格式回答 並只回答json部分 please answer in English`, // 输入的提示词
+        "prompt": `請幫我擬定${input}的學習計畫，請嚴格以以下的格式回復，source部分必須是物件格式，裡面會標註type是url還是純text，並以content來做內容。嚴格以${format}的格式回答 並只回答json部分 請以中文回答`, // 输入的提示词
         "stream": false,          // 是否启用流式响应（默认 false）
         "options": {              // 可选参数
             "temperature": 0.7,     // 温度参数
@@ -67,7 +67,7 @@ async function searchGoogle(query) {
     link: item.link,
     snippet: item.snippet,
     content:item.link,
-    icon:item.pagemap.cse_image? item.pagemap.cse_image[0]:null
+    icon:item.pagemap&&item.pagemap.cse_image? item.pagemap.cse_image[0]:null
   }));
 }
 async function saveMap(User_ID,definition){
@@ -77,8 +77,8 @@ async function saveMap(User_ID,definition){
 async function getMap(User_ID){
     return await postgres.query('select * from "LMT"."Learning_Map" where "User_ID"=$1',[User_ID]);
 }
-async function getMapByUUID(UUID){
-    return (await postgres.query('select * from "LMT"."Learning_Map" where "UUID"=$1',[UUID])).rows[0].Definition;
+async function getMapByUUID(User_ID,UUID){
+    return (await postgres.query('select * from "LMT"."Learning_Map" where "User_ID"=$1 and  "UUID"=$2',[User_ID,UUID])).rows[0].Definition;
 }
 async function deleteMap(UUID){
     return await postgres.query('delete from "LMT"."Learning_Map" where "UUID"=$1',[UUID]);

@@ -95,11 +95,12 @@ export default function ChatbotPage() {
             fetch("http://localhost:3001/chat", {
                 method: "POST",
                 body: formData,   /*使用處理後的資料*/
+                credentials:"include",
                 headers: new Headers({
                     "Content-type": "application/x-www-form-urlencoded"
                 })
             })
-                .then(res => res.json())
+                .then(res => {if(res.status===401){alert("you have not signed in yet");navigate('./login')} return res.json()})
                 .then(data => {
                     const botMsg = { id: Date.now() + 1, role: "assistant", text: formatStudyMap(data), type: "map", data: data };
                     setMessages((prev) => [...prev, botMsg]);

@@ -55,12 +55,13 @@ function sendGet(url, handler) {
     console.log(err)
   }
 }
-function sendPost(url, data, handler) {
+function sendPost(url, data, handler,) {
   try {
     const formData = JSON.stringify(data);
     fetch(url, {
       method: "POST",
       body: formData,   /*使用處理後的資料*/
+      credentials: "include",
       headers: new Headers({
         "Content-type": "application/json"
       })
@@ -79,7 +80,7 @@ function sendPost(url, data, handler) {
 
 
 
-function CheckItem({ label = "標記為完成", onToggle, complete = false }) {
+function CheckItem({ label = "Mark as complete", onToggle, complete = false }) {
   const [checked, setChecked] = useState(complete);
   const { idx } = useParams();
   const handleClick = () => {
@@ -207,7 +208,7 @@ function ContentCard({ index, src, isEditing, updateMap }) {
             )}
             <div className="card-body">
               <h5 className="card-title text-primary">
-                {src.title || "前往連結"}
+                {src.title || "go to link"}
               </h5>
               <p className="card-text text-light">{src.snippet}</p>
             </div>

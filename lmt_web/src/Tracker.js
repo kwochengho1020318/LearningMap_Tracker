@@ -7,14 +7,15 @@ import "./Tracker.css";
 import { CheckItem, sendPost, ContentCard, SourceCard} from "./utils.js";
 import { SlArrowDown, SlArrowRight, SlCheck } from "react-icons/sl";
 
-function TreeItem({ title, children, leaf = false, pathname, complete = false }) {
+function TreeItem({ title, children, leaf = false, pathname, complete = false ,role=""}) {
   const navigate = useNavigate();
+  let backgroundColor=role==="phase"?"bg-secondary":"bg-dark"
 
   const [open, setOpen] = useState(false);
   return (
-    <div className="mb-2 ">
+    <div className="mb-2 " >
       <div
-        className="p-2 bg-dark border-start  text-light"
+        className={`p-2 ${backgroundColor} border-start  text-light`}
         style={{ cursor: "pointer", fontSize: "16px" }}
         onClick={!leaf ? () => setOpen(!open) : () => { navigate(pathname) }}
       >
@@ -70,7 +71,7 @@ function Sidebar({ mapped, uuid, target ,isEditing,setIsEditing}) {
       <h5 className="text-light">{target}</h5>
 
       {mapped && mapped.map((phase, i) => (
-        <TreeItem key={i} title={`${phase.name} (${phase.time})`} complete={phase.complete}>
+        <TreeItem role="phase" key={i} title={`${phase.name} (${phase.time})`} complete={phase.complete}>
           <TreeItem title={`Test：${phase.test.name}`} complete={phase.testcomplete}>
             <TreeItem title={phase.test.name} leaf={true} pathname={`/tracker/${uuid}/${i}/test`} complete={phase.test.complete} />
           </TreeItem>
@@ -110,6 +111,7 @@ export default function TrackerPage() {
   const [items, setItems] = useState(null);
   const [target, setTarget] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
   const updateMap = async (uuid, items) => {
     try {
       // 假設這裡是你的 API
@@ -124,7 +126,10 @@ export default function TrackerPage() {
     const fetchMenu = async () => {
       try {
         // 假設這裡是你的 API
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/chat/map/${uuid}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/chat/map/${uuid}`,{credentials:"include"});
+        if (response.status===401){ 
+                  navigate('/login',{replace:true})
+                }
         const data = await response.json();
 
         // 轉換成我們需要的格式

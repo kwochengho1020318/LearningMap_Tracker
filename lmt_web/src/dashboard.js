@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 
 
 function DocsGrid({ items, onItemClick, onCreateNew }) {
@@ -79,14 +79,17 @@ export default function DocsGridDemo() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate= useNavigate();
+  
   // 一開始打 API
   useEffect(() => {
     const fetchData = async () => {
       try {
         // 假設這裡是你的 API
-        const response = await fetch("http://localhost:3001/chat/map");
+        const response = await fetch("http://localhost:3001/chat/map",{credentials:"include"});
         const data = await response.json();
-
+        if (response.status===401){ 
+          navigate('/login',{replace:true})
+        }
         // 轉換成我們需要的格式
         const mapped = data.data.map((d) => ({
           id: d.UUID,

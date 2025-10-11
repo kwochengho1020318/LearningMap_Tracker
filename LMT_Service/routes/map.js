@@ -7,7 +7,7 @@ router.post(':uuid/content/:idx',async(req,res)=>{
     try{
         const definition = req.body;
         
-        const response = chatservice.saveMap('luca',definition);
+        const response = chatservice.saveMap(req.session.User_ID,definition);
         res.json({"data":(await response).rowCount});
     }catch(err){
         res.status(400).json({"message":err.message})
