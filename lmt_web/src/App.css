@@ -61,11 +61,7 @@
 }
 .mainContent{
 
-  width: 90%;  /* 水平置中 */
-  align-items: center;
-  /* 垂直置中 */
-  height: 100vh;
-  /* 讓 wrapper 填滿視窗，方便看效果 */
+
   background-color: #282c34;
   border-radius: 20px;
   overflow: auto;
