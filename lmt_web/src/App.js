@@ -55,17 +55,16 @@ function NavBar(){
     CheckStatus();
   })
   return <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link className='text-light w-75' to="/">LearningMap_Tracker</Link> 
-            {isLoggedIn && <div><div className='text-light'>welcome,{user_ID}</div></div>} 
-            <Link className='navbar-brand mx-3' to="/">Home</Link> | 
-            <Link className='nav-link text-light me-3' to="/about">About us</Link> | 
-            <Link className='nav-link text-light' to="/dashboard">DashBoard</Link> 
-            |{isLoggedIn ? <Link onClick={async () => {
+            <Link className='text-light w-75 navbar-brand' to="/">LearningMap_Tracker</Link> 
+            {isLoggedIn && <div><div className='text-light me-5' >welcome,{user_ID}</div></div>} 
+            <Link className='navbar-nav nav-link text-light me-3' to="/about">About us</Link> | 
+            <Link className='navbar-nav nav-link text-light me-3' to="/dashboard">DashBoard</Link> 
+            |{isLoggedIn ? <Link className='border border-light rounded navbar-nav nav-link text-light' onClick={async () => {
               await fetch(`${process.env.REACT_APP_API_URL}/login/logout`, { method: 'POST', credentials: 'include' });
               setisLoggedIn(false);
               setuser_ID("")
               navigate("/login", { replace: true })
-            }}>Logout</Link> : <Link className='nav-link text-light' to="/login">Login</Link>}
+            }}><div className='mx-3'> Logout </div></Link> : <Link className='border border-light rounded navbar-nav nav-link text-light' to="/login"><div className='mx-3'> Login </div></Link>}
           </nav>
 }
 export default App;

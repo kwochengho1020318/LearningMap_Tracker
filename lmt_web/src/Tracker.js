@@ -65,7 +65,7 @@ function Sidebar({ mapped, uuid, target ,isEditing,setIsEditing}) {
 
 
   return (
-    <div className="d-flex flex-column p-3 bg-dark sideBar " style={{ minHeight: "100vh", width: "500px", margin: "30px 50px", borderRadius: "22px" }}>
+    <div className=" container p-3 bg-dark  " style={{ minHeight: "100vh", width: "500px", margin: "30px 50px", borderRadius: "22px" }}>
       <h5 className="text-light">Subject</h5>
 
       <h5 className="text-light">{target}</h5>
@@ -147,7 +147,7 @@ export default function TrackerPage() {
     <div className="d-flex  base">
       {/* 左側 Sidebar */}
       <Sidebar className="" mapped={items} uuid={uuid} target={target} isEditing={isEditing} setIsEditing={setIsEditing} />
-      {items && <div className="mt-3 mb-3 mr-3 flex-fill rightColumn" >
+      {items && <div className="container mt-3 mb-3 mr-3 " >
         <div className="mainContent">
           <Routes>
             <Route path=":i/test" element={<TestPage items={items} />} />

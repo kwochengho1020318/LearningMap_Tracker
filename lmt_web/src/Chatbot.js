@@ -187,7 +187,7 @@ export default function ChatbotPage() {
                 </div>
             </header>
 
-            <div className="wrapper" >
+            <div className="container wrapper" >
 
                 {/* Messages */}
                 <main className="chat-main" >
