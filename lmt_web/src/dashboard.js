@@ -127,7 +127,7 @@ export default function DocsGridDemo() {
   };
 
   if (loading) {
-    return <div className="text-center p-5">載入中...</div>;
+    return <div className="base"></div>;
   }
 
   return <DocsGrid items={items} onItemClick={handleItemClick} onCreateNew={handleCreate} />;
