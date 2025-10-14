@@ -65,7 +65,7 @@ function Sidebar({ mapped, uuid, target ,isEditing,setIsEditing}) {
 
 
   return (
-    <div className=" container p-3 bg-dark  " style={{ minHeight: "100vh", width: "500px", margin: "30px 50px", borderRadius: "22px" }}>
+    <div className=" container p-3 bg-dark  " style={{ minHeight: "100vh", width: "20%", margin: "30px 50px", borderRadius: "22px" }}>
       <h5 className="text-light">Subject</h5>
 
       <h5 className="text-light">{target}</h5>
@@ -148,7 +148,7 @@ export default function TrackerPage() {
       {/* 左側 Sidebar */}
       <Sidebar className="" mapped={items} uuid={uuid} target={target} isEditing={isEditing} setIsEditing={setIsEditing} />
       {items && <div className="container mt-3 mb-3 mr-3 " >
-        <div className="mainContent">
+        <div className="mainContent container ">
           <Routes>
             <Route path=":i/test" element={<TestPage items={items} />} />
             <Route path=":i/content/:idx" element={<ContentPage items={items} />} />
