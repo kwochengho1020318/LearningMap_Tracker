@@ -6,11 +6,6 @@ const crypto = require('crypto');
 async function login(User_ID,User_Pass){
     const phash = crypto.createHash('md5').update(User_Pass).digest('hex');
     ex= (await postgres.query('select * from "LMT"."Users" where "User_ID"=$1 and "User_Pass" = $2',[User_ID,phash])).rows.length;
-    if(ex==0){
-        return false
-    }
-    else{
-        return true;
-    }
+    return (ex>0);
 }
 module.exports={login}
