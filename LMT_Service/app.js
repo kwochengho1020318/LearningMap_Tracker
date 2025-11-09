@@ -35,12 +35,13 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  
+  secure: true    ,
+    sameSite: "none",
+  cookie: {
     maxAge: 1000 * 60 * 60, // 1 小時
     httpOnly: true,         // 前端無法讀 cookie
-    secure: true    ,
-    sameSite: "none",
-  
+    
+  } 
 }))
 app.use(checkSession);
 app.use('/', indexRouter);
