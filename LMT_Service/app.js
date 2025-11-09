@@ -33,13 +33,13 @@ app.use(cors({origin:[process.env.CORS],credentials: true    }))
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  sameSite: "none",
   resave: false,
   saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60, // 1 小時
     httpOnly: true,         // 前端無法讀 cookie
-    secure: true           // HTTPS 才需設 true（本地測試請設 false）
+    secure: true    ,
+    sameSite: "none",
   } 
 }))
 app.use(checkSession);
