@@ -32,7 +32,7 @@ app.use(cors({origin:[process.env.CORS],credentials: true    }))
 
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  keys: [process.env.SESSION_SECRET],
   
   
 
