@@ -35,9 +35,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  maxAge: 1000*60*60, // 1小時
-    httpOnly: true,      // 前端 JS 無法讀 cookie，提升安全
-    secure: false    
+  cookie: {
+    maxAge: 1000 * 60 * 60, // 1 小時
+    httpOnly: true,         // 前端無法讀 cookie
+    secure: false           // HTTPS 才需設 true（本地測試請設 false）
+  } 
 }))
 app.use(checkSession);
 app.use('/', indexRouter);
