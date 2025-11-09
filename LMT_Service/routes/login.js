@@ -22,7 +22,9 @@ router.post('/',async(req,res)=>{
 })
 router.post('/logout',async(req,res)=>{
     try{
-        res.clearCookie('connect.sid');
+        res.clearCookie('session');
+        res.clearCookie('session.sig');
+
         res.json({"data":("success")});
     }catch(err){
         res.status(400).json({"message":err.message})
