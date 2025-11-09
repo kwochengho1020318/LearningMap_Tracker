@@ -13,7 +13,7 @@ function TreeItem({ title, children, leaf = false, pathname, complete = false ,r
 
   const [open, setOpen] = useState(false);
   return (
-    <div className="mb-2 " >
+    <div className="mb-2 container " >
       <div
         className={`p-2 ${backgroundColor} border-start  text-light`}
         style={{ cursor: "pointer", fontSize: "16px" }}
@@ -65,7 +65,7 @@ function Sidebar({ mapped, uuid, target ,isEditing,setIsEditing}) {
 
 
   return (
-    <div className=" container p-3 bg-dark  " style={{ minHeight: "100vh", width: "20%", margin: "30px 50px", borderRadius: "22px" }}>
+    <div className=" container p-3 bg-dark w-25 mt-3" style={{ minHeight: "100vh", borderRadius: "22px" }}>
       <h5 className="text-light">Subject</h5>
 
       <h5 className="text-light">{target}</h5>
@@ -147,7 +147,7 @@ export default function TrackerPage() {
     <div className="d-flex  base">
       {/* 左側 Sidebar */}
       <Sidebar className="" mapped={items} uuid={uuid} target={target} isEditing={isEditing} setIsEditing={setIsEditing} />
-      {items && <div className="container mt-3 mb-3 mr-3 " >
+      {items && <div className="container mt-3 mb-3  w-75" >
         <div className="mainContent container ">
           <Routes>
             <Route path=":i/test" element={<TestPage items={items} />} />
