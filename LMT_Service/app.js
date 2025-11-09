@@ -1,4 +1,4 @@
-var session=require('cookie-session')
+var cookiesession=require('cookie-session')
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -31,12 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({origin:[process.env.CORS],credentials: true    }))
 
 
-app.use(session({
+app.use(cookiesession({
   keys: [process.env.SESSION_SECRET],
-  maxAge: 1000 * 60 * 60, // 1 小時
-  httpOnly: true,         // 前端無法讀 cookie
-  secure: true,
-  sameSite:'none'
+  
+  sameSite:"None",
+  secure:true,
+    maxAge: 1000 * 60 * 60, // 1 小時
+    httpOnly: true,         // 前端無法讀 cookie
+
   
 }))
 app.use(checkSession);
