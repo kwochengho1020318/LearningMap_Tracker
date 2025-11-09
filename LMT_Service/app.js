@@ -38,7 +38,7 @@ app.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60, // 1 小時
     httpOnly: true,         // 前端無法讀 cookie
-    secure: false           // HTTPS 才需設 true（本地測試請設 false）
+    secure: true           // HTTPS 才需設 true（本地測試請設 false）
   } 
 }))
 app.use(checkSession);
