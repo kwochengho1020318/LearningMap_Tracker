@@ -33,10 +33,6 @@ app.use(cors({origin:[process.env.CORS],credentials: true    }))
 
 app.use(session({
   keys: [process.env.SESSION_SECRET],
-  
-  
-
-  
   maxAge: 1000 * 60 * 60, // 1 小時
   httpOnly: true,         // 前端無法讀 cookie
   secure: true,
