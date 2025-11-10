@@ -30,17 +30,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({origin:[process.env.CORS],credentials: true    }))
 
-
+app.set('trust proxy',1);
 app.use(cookiesession({
   keys: [process.env.SESSION_SECRET],
   
     maxAge: 1000 * 60 * 60, // 1 小時
     httpOnly: true,         // 前端無法讀 cookie
-cookie: {
+
     httpOnly: true,
-    secure: true,      
+    secure: 'auto',      
     sameSite: "none"    
-  }
+  
   
 }))
 app.use(checkSession);
